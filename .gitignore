@@ -20,7 +20,7 @@ target/
 *.ipr
 
 ### folders to ignore ###
-resources/
+src/main/resources/
 
 ### NetBeans ###
 /nbproject/private/
