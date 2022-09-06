@@ -18,7 +18,9 @@ target/
 *.iws
 *.iml
 *.ipr
-resources
+
+### folders to ignore ###
+resources/
 
 ### NetBeans ###
 /nbproject/private/
