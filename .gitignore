@@ -21,6 +21,7 @@ target/
 
 ### folders to ignore ###
 wiki-auctions/src/main/resources/*
+resources/
 
 ### NetBeans ###
 /nbproject/private/
