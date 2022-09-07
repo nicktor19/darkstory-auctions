@@ -10,4 +10,5 @@ public class WikiAuctionsApplication {
 		SpringApplication.run(WikiAuctionsApplication.class, args);
 	}
 
+
 }
