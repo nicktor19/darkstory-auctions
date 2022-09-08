@@ -1,7 +1,7 @@
-package com.darkstoryauction.wikiauctions.controller;
+package com.darkstoryauction.wikiauctions.controller.items;
 
-import com.darkstoryauction.wikiauctions.entity.Item;
-import com.darkstoryauction.wikiauctions.service.ItemServices;
+import com.darkstoryauction.wikiauctions.entity.items.Item;
+import com.darkstoryauction.wikiauctions.service.items.ItemServices;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,7 +1,7 @@
-package com.darkstoryauction.wikiauctions.service;
+package com.darkstoryauction.wikiauctions.service.items;
 
-import com.darkstoryauction.wikiauctions.entity.ItemType;
-import com.darkstoryauction.wikiauctions.repository.ItemTypeRepo;
+import com.darkstoryauction.wikiauctions.entity.items.ItemType;
+import com.darkstoryauction.wikiauctions.repository.items.ItemTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

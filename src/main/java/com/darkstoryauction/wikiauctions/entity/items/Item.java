@@ -1,10 +1,11 @@
-package com.darkstoryauction.wikiauctions.entity;
+package com.darkstoryauction.wikiauctions.entity.items;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -24,6 +25,7 @@ public class Item {
     private int id;
     private String name;
     @ManyToOne
-    @JoinColumn(name = "type_id")
     private ItemType type;
+    @ManyToOne
+    private List<Bonus> bonus;
 }

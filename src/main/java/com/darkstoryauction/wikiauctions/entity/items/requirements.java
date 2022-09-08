@@ -1,4 +1,4 @@
-package com.darkstoryauction.wikiauctions.entity;
+package com.darkstoryauction.wikiauctions.entity.items;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +11,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemType {
+public class requirements {
     @Id
     private String name;
-    private String description;
 }
