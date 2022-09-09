@@ -25,7 +25,6 @@ public class Item {
     private int id;
     private String name;
     @ManyToOne
+    @JoinColumn(name = "type_name")
     private ItemType type;
-    @ManyToOne
-    private List<Bonus> bonus;
 }

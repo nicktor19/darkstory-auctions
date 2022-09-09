@@ -1,5 +1,6 @@
 package com.darkstoryauction.wikiauctions.service.items;
 
+import com.darkstoryauction.wikiauctions.datanormalizer.DataNormalizer;
 import com.darkstoryauction.wikiauctions.entity.items.Item;
 import com.darkstoryauction.wikiauctions.repository.items.ItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class ItemServices {
 
     public String addItem(Item newItem) {
         //check if item type exist.
+        newItem.setName(DataNormalizer.upperCaseWord(newItem.getName()));
+        newItem.getType().setName(DataNormalizer.upperCaseWord(newItem.getType().getName()));
         if (!itemTypeServices.findItemType(newItem.getType())) {
             itemRepo.save(newItem);
             return newItem.getName() + " Item was created";

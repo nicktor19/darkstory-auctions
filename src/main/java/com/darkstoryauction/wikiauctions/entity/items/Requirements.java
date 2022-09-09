@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class requirements {
+public class Requirements {
     @Id
     private String name;
 }
