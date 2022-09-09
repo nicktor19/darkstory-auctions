@@ -1,5 +1,6 @@
 package com.darkstoryauction.wikiauctions.service.items;
 
+import com.darkstoryauction.wikiauctions.datanormalizer.DataNormalizer;
 import com.darkstoryauction.wikiauctions.entity.items.Rarity;
 import com.darkstoryauction.wikiauctions.repository.items.RarityRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ public class RarityService {
     RarityRepo rarityRepo;
 
     public String addRarity(Rarity newRarity){
+        newRarity.setName(DataNormalizer.upperCaseWord(newRarity.getName()));
         if (findRarity(newRarity)) {
             rarityRepo.save(newRarity);
             return newRarity.getName() + " was created";

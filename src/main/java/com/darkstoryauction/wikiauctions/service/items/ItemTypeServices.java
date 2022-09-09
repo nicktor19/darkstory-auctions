@@ -1,5 +1,6 @@
 package com.darkstoryauction.wikiauctions.service.items;
 
+import com.darkstoryauction.wikiauctions.datanormalizer.DataNormalizer;
 import com.darkstoryauction.wikiauctions.entity.items.ItemType;
 import com.darkstoryauction.wikiauctions.repository.items.ItemTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,12 @@ public class ItemTypeServices {
     private ItemTypeRepo itemTypeRepo;
 
     /**
-     * Create new item type
+     * Create new item type - will normalize the data to uppercase the word
      * @param newItemType
      * @return String message
      */
     public String addItemType(ItemType newItemType) {
+        newItemType.setName(DataNormalizer.upperCaseWord(newItemType.getName()));
         if (findItemType(newItemType)) {
             itemTypeRepo.save(newItemType);
             return newItemType.getName() + " was added to Item Types.";
