@@ -6,11 +6,18 @@ import com.darkstoryauction.wikiauctions.service.items.ItemTypeServices;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/item_type")
 public class ItemTypeResource {
     private ItemTypeServices itemTypeServices;
+
+    @GetMapping("/get")
+    public List<ItemType> getAllItemTypes() {
+        return itemTypeServices.getAllItemTypes();
+    }
 
     @PostMapping("/add")
     public String  addItemType(@RequestBody ItemType newItemType) {

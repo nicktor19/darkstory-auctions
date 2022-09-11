@@ -6,10 +6,20 @@ import com.darkstoryauction.wikiauctions.repository.items.ItemTypeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemTypeServices {
     @Autowired
     private ItemTypeRepo itemTypeRepo;
+
+    /**
+     * Gather all itemTypes.
+     * @return List<ItemType>
+     */
+    public List<ItemType> getAllItemTypes() {
+        return itemTypeRepo.findAll();
+    }
 
     /**
      * Create new item type - will normalize the data to uppercase the word

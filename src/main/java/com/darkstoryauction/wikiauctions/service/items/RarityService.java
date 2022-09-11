@@ -6,11 +6,16 @@ import com.darkstoryauction.wikiauctions.repository.items.RarityRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RarityService {
     @Autowired
     RarityRepo rarityRepo;
 
+    public List<Rarity> getAllRarities() {
+        return rarityRepo.findAll();
+    }
     public String addRarity(Rarity newRarity){
         newRarity.setName(DataNormalizer.upperCaseWord(newRarity.getName()));
         if (findRarity(newRarity)) {

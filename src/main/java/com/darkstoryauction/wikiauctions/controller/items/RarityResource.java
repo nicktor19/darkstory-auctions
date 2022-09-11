@@ -5,12 +5,19 @@ import com.darkstoryauction.wikiauctions.service.items.RarityService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/rarity")
 public class RarityResource {
 
     private RarityService rarityService;
+
+    @GetMapping("/get")
+    public List<Rarity> getAllRarities() {
+        return rarityService.getAllRarities();
+    }
 
     @PostMapping("/add")
     public String addRarity(@RequestBody Rarity rarity) {
