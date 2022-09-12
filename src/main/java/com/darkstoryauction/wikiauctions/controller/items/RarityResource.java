@@ -1,7 +1,7 @@
 package com.darkstoryauction.wikiauctions.controller.items;
 
-import com.darkstoryauction.wikiauctions.entity.items.Rarity;
-import com.darkstoryauction.wikiauctions.service.items.RarityService;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Rarity;
+import com.darkstoryauction.wikiauctions.service.items.base.stats.RarityService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
-package com.darkstoryauction.wikiauctions.repository.items;
+package com.darkstoryauction.wikiauctions.repository.items.base.stats;
 
-import com.darkstoryauction.wikiauctions.entity.items.Rarity;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Rarity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

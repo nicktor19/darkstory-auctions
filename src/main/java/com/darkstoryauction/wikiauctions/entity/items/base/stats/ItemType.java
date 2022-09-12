@@ -1,4 +1,4 @@
-package com.darkstoryauction.wikiauctions.entity.items;
+package com.darkstoryauction.wikiauctions.entity.items.base.stats;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Bonus {
+public class ItemType{
     @Id
     private String name;
 }

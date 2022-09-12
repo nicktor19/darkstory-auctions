@@ -1,7 +1,7 @@
 package com.darkstoryauction.wikiauctions.controller.items;
 
-import com.darkstoryauction.wikiauctions.entity.items.Job;
-import com.darkstoryauction.wikiauctions.service.items.JobService;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Job;
+import com.darkstoryauction.wikiauctions.service.items.base.stats.JobService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

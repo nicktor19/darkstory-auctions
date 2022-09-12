@@ -1,7 +1,7 @@
 package com.darkstoryauction.wikiauctions.controller.items;
 
-import com.darkstoryauction.wikiauctions.entity.items.Stats;
-import com.darkstoryauction.wikiauctions.service.items.StatsService;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Stats;
+import com.darkstoryauction.wikiauctions.service.items.base.stats.StatsService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

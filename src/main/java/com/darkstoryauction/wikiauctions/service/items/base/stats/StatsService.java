@@ -1,8 +1,8 @@
-package com.darkstoryauction.wikiauctions.service.items;
+package com.darkstoryauction.wikiauctions.service.items.base.stats;
 
 import com.darkstoryauction.wikiauctions.datanormalizer.DataNormalizer;
-import com.darkstoryauction.wikiauctions.entity.items.Stats;
-import com.darkstoryauction.wikiauctions.repository.items.StatsRepo;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Stats;
+import com.darkstoryauction.wikiauctions.repository.items.base.stats.StatsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -17,6 +17,7 @@ public class ItemResource {
 
     @PostMapping("/add")
     public String addItem(@RequestBody Item newItem) {
+        System.out.println(newItem);
         return itemServices.addItem(newItem);
     }
 }
