@@ -27,7 +27,7 @@ public class ItemTypeServices {
      * @return String message
      */
     public String addItemType(ItemType newItemType) {
-        newItemType.setName(DataNormalizer.upperCaseWord(newItemType.getName()));
+        newItemType.setName(DataNormalizer.upperCaseTitle(newItemType.getName()));
         if (findItemType(newItemType)) {
             itemTypeRepo.save(newItemType);
             return newItemType.getName() + " was added to Item Types.";

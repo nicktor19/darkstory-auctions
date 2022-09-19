@@ -17,7 +17,7 @@ public class BonusService {
         return bonusRepo.findAll();
     }
     public String addBonus(Bonus bonus) {
-        bonus.setName(DataNormalizer.upperCaseWord(bonus.getName()));
+        bonus.setName(DataNormalizer.upperCaseTitle(bonus.getName()));
         if (findBonus(bonus)) {
             bonusRepo.save(bonus);
             return bonus.getName() + " was created.";
@@ -26,7 +26,7 @@ public class BonusService {
     }
 
     public String delBonus(Bonus delBonus) {
-        delBonus.setName(DataNormalizer.upperCaseWord(delBonus.getName()));
+        delBonus.setName(DataNormalizer.upperCaseTitle(delBonus.getName()));
         if (!findBonus(delBonus)) {
             bonusRepo.delete(delBonus);
             return delBonus.getName() + " was deleted.";

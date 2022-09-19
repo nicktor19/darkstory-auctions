@@ -23,13 +23,13 @@ public class Item {
             strategy = GenerationType.SEQUENCE,
             generator = "item_sequence"
     )
-    private int id;
-    private String name;
+    protected int id;
+    protected String name;
     @ManyToOne
     @JoinColumn(name = "type_name")
-    private ItemType type;
+    protected ItemType type;
     @ManyToOne
     @JoinColumn(name = "rarity_name")
-    private Rarity rarity;
-    private String pictureUrl;
+    protected Rarity rarity;
+    protected String pictureUrl;
 }

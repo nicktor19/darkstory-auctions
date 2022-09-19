@@ -18,7 +18,7 @@ public class StatsService {
     }
 
     public String addStats(Stats stat) {
-        stat.setName(DataNormalizer.upperCaseWord(stat.getName()));
+        stat.setName(DataNormalizer.upperCaseTitle(stat.getName()));
         if (findStat(stat)) {
             statsRepo.save(stat);
             return stat.getName() + " was created";
@@ -27,13 +27,18 @@ public class StatsService {
         }
     }
 
-    //check
+    /**
+     * Returns true if item doesn't exist
+     * @param stat
+     * @return boolean
+     */
     public boolean findStat(Stats stat) {
         return  statsRepo.findById(stat.getName()).isEmpty();
     }
+
     //delete
     public String deleteStat(Stats stat) {
-        stat.setName(DataNormalizer.upperCaseWord(stat.getName()));
+        stat.setName(DataNormalizer.upperCaseTitle(stat.getName()));
         if (!findStat(stat)) {
             statsRepo.deleteById(stat.getName());
             return stat.getName() + " was deleted.";

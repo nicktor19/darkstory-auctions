@@ -22,13 +22,13 @@ public class ItemTypeResource {
     @PostMapping("/add")
     public String  addItemType(@RequestBody ItemType newItemType) {
         //uppercase first letter
-        newItemType.setName(DataNormalizer.upperCaseWord(newItemType.getName()));
+        newItemType.setName(DataNormalizer.upperCaseTitle(newItemType.getName()));
         return itemTypeServices.addItemType(newItemType);
     }
 
     @DeleteMapping("/delete")
     public String deleteItemType(@RequestBody ItemType delItemType) {
-        delItemType.setName(DataNormalizer.upperCaseWord(delItemType.getName()));
+        delItemType.setName(DataNormalizer.upperCaseTitle(delItemType.getName()));
         return itemTypeServices.deleteItemType(delItemType);
     }
 }

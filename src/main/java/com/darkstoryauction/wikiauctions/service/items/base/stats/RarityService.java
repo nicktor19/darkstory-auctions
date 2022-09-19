@@ -17,7 +17,7 @@ public class RarityService {
         return rarityRepo.findAll();
     }
     public String addRarity(Rarity newRarity){
-        newRarity.setName(DataNormalizer.upperCaseWord(newRarity.getName()));
+        newRarity.setName(DataNormalizer.upperCaseTitle(newRarity.getName()));
         if (findRarity(newRarity)) {
             rarityRepo.save(newRarity);
             return newRarity.getName() + " was created";

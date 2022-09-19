@@ -19,7 +19,7 @@ public class RequirementsService {
     }
 
     public String addRequirements(Requirements req) {
-        req.setName(DataNormalizer.upperCaseWord(req.getName()));
+        req.setName(DataNormalizer.upperCaseTitle(req.getName()));
         if (findRequirement(req)) {
             requirementsRepo.save(req);
             return req.getName() + " was created.";
@@ -29,7 +29,7 @@ public class RequirementsService {
     }
 
     public String deleteRequirement(Requirements req) {
-        req.setName(DataNormalizer.upperCaseWord(req.getName()));
+        req.setName(DataNormalizer.upperCaseTitle(req.getName()));
         if (!findRequirement(req)) {
             requirementsRepo.delete(req);
             return req.getName() + " was deleted.";

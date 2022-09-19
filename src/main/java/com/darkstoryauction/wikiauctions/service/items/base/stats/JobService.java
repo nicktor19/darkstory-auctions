@@ -18,7 +18,7 @@ public class JobService {
     }
 
     public String addJob(Job newJob){
-        newJob.setName(DataNormalizer.upperCaseWord(newJob.getName()));
+        newJob.setName(DataNormalizer.upperCaseTitle(newJob.getName()));
         if (findJob(newJob)) {
             jobRepo.save(newJob);
             return newJob.getName() + " was created.";
@@ -28,7 +28,7 @@ public class JobService {
     }
 
     public String delJob(Job delJob) {
-        delJob.setName(DataNormalizer.upperCaseWord(delJob.getName()));
+        delJob.setName(DataNormalizer.upperCaseTitle(delJob.getName()));
         if (!findJob(delJob)) {
             jobRepo.delete(delJob);
             return delJob.getName() + " was deleted";

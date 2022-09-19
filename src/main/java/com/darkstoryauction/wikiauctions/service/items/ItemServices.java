@@ -2,6 +2,10 @@ package com.darkstoryauction.wikiauctions.service.items;
 
 import com.darkstoryauction.wikiauctions.datanormalizer.DataNormalizer;
 import com.darkstoryauction.wikiauctions.entity.items.Item;
+import com.darkstoryauction.wikiauctions.entity.items.ItemBuilder;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Job;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Requirements;
+import com.darkstoryauction.wikiauctions.entity.items.base.stats.Stats;
 import com.darkstoryauction.wikiauctions.repository.items.ItemRepo;
 import com.darkstoryauction.wikiauctions.service.items.base.stats.ItemTypeServices;
 import com.darkstoryauction.wikiauctions.service.items.base.stats.RarityService;
@@ -11,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ItemServices {
@@ -33,9 +38,9 @@ public class ItemServices {
     @Transactional
     public String addItem(Item newItem) {
         //check if item type exist.
-        newItem.setName(DataNormalizer.upperCaseWord(newItem.getName()));
-        newItem.getType().setName(DataNormalizer.upperCaseWord(newItem.getType().getName()));
-        newItem.getRarity().setName(DataNormalizer.upperCaseWord(newItem.getRarity().getName()));
+        newItem.setName(DataNormalizer.upperCaseTitle(newItem.getName()));
+        newItem.getType().setName(DataNormalizer.upperCaseTitle(newItem.getType().getName()));
+        newItem.getRarity().setName(DataNormalizer.upperCaseTitle(newItem.getRarity().getName()));
         if (!itemTypeServices.findItemType(newItem.getType()) && !rarityService.findRarity(newItem.getRarity())) {
             entityManager.persist(newItem);
             System.out.println(newItem.getId());
@@ -59,4 +64,24 @@ public class ItemServices {
     public boolean findItemById(Item item) {
         return itemRepo.findById(item.getId()).isPresent();
     }
+
+    //Send a full item builder
+
+    /**
+     * Made to build up the Item with its attributes like stats, requirements, jobs, etc.
+     * @param item
+     * @return
+     */
+    public ItemBuilder newItemBuilder(Item item, Map<Stats, Integer> statsValueMap,
+                                   Map<Requirements, Integer> requirementsValueMap,
+                                   List<Job> jobList) {
+        ItemBuilder getItem = new ItemBuilder();
+        getItem.setItemCore(item);
+        getItem.setStatsMap(statsValueMap);
+        getItem.setRequirementsMap(requirementsValueMap);
+        getItem.setJobList(jobList);
+        return getItem;
+    }
+
+
 }
