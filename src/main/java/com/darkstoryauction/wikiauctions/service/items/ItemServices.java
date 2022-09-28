@@ -36,18 +36,19 @@ public class ItemServices {
     }
 
     @Transactional
-    public String addItem(Item newItem) {
+    public int addItem(Item newItem) {
         //check if item type exist.
-        newItem.setName(DataNormalizer.upperCaseTitle(newItem.getName()));
-        newItem.getType().setName(DataNormalizer.upperCaseTitle(newItem.getType().getName()));
-        newItem.getRarity().setName(DataNormalizer.upperCaseTitle(newItem.getRarity().getName()));
+        newItem.setName(newItem.getName().trim());
+        newItem.setName(DataNormalizer.upperCaseTitle(newItem.getName()).trim());
+        newItem.getType().setName(DataNormalizer.upperCaseTitle(newItem.getType().getName()).trim());
+        newItem.getRarity().setName(DataNormalizer.upperCaseTitle(newItem.getRarity().getName()).trim());
         if (!itemTypeServices.findItemType(newItem.getType()) && !rarityService.findRarity(newItem.getRarity())) {
             entityManager.persist(newItem);
-            System.out.println(newItem.getId());
             entityManager.close();
-            return newItem.getName() + " Item was created.\n" + newItem;
+            System.out.println(newItem.getId());
+            return newItem.getId();
         }
-        return newItem.getName() + " Item was not created.";
+        return 0;
     }
 
     public String UpdateItem(Item updatedItem) {

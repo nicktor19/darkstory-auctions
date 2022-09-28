@@ -14,11 +14,18 @@ public class ItemResource {
 
     public ItemServices itemServices;
 
-    @PostMapping("/add")
-    public String addItem(@RequestBody Item newItem) {
-        System.out.println(newItem);
-        return itemServices.addItem(newItem);
-    }
+//    /**
+//     * Will return the items ID to make the rest of the items stats.
+//     * @param newItem
+//     * @return int (the items ID)
+//     */
+//    @PostMapping("/add")
+//    public int addItem(@RequestBody Item newItem) {
+//        //System.out.println(newItem);
+//        newItem.setName(newItem.getName());
+//        itemServices.addItem(newItem);
+//        return newItem.getId();
+//    }
 
     @GetMapping("/get")
     public List<Item> getAllItems() {

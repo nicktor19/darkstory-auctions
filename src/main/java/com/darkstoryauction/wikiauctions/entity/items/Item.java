@@ -24,6 +24,7 @@ public class Item {
             generator = "item_sequence"
     )
     protected int id;
+    @Column(nullable = false)
     protected String name;
     @ManyToOne
     @JoinColumn(name = "type_name")
@@ -32,4 +33,5 @@ public class Item {
     @JoinColumn(name = "rarity_name")
     protected Rarity rarity;
     protected String pictureUrl;
+    protected int slots;
 }

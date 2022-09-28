@@ -20,11 +20,42 @@ public class ItemBuilder {
     private Map<Stats, Integer> statsMap = new HashMap<>();
     private List<Job> jobList = new ArrayList<>();
 
-    /**
-     * delete when finished. this is how to build the item
-     * @param args
+    /** JSON
+     * {
+     *     "itemCore": {
+     *         "id": 0,
+     *         "name": "Billy",
+     *         "type": {
+     *             "name": "Armor"
+     *         },
+     *         "rarity": {
+     *             "name": "Epic"
+     *         },
+     *         "pictureUrl": "Google.com"
+     *     },
+     *     "requirementsMap": {
+     *         "Requirements(name=Intelligence)": 100,
+     *         "Requirements(name=Strength)": 1000
+     *     },
+     *     "statsMap": {
+     *         "Stats(name=Intelligence)": 200,
+     *         "Stats(name=Strength)": 2000
+     *     },
+     *     "jobList": [
+     *         {
+     *             "name": "NPC"
+     *         },
+     *         {
+     *             "name": "Quester"
+     *         },
+     *         {
+     *             "name": "Shop"
+     *         }
+     *     ]
+     * }
      */
-    public static void main(String[] args) {
+
+    public ItemBuilder testJSON() {
         ItemBuilder test = new ItemBuilder();
         Item newItem = new Item();
 
@@ -51,6 +82,11 @@ public class ItemBuilder {
         test.setStatsMap(statsMap);
         test.setJobList(jobList1);
 
-        System.out.println();
+        System.out.println(test);
+        System.out.println(test.itemCore);
+        System.out.println(test.jobList);
+        System.out.println(test.statsMap);
+        System.out.println(test.requirementsMap);
+        return test;
     }
 }

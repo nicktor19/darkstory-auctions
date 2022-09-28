@@ -4,6 +4,8 @@ import com.darkstoryauction.wikiauctions.entity.items.base.stats.Stats;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
@@ -23,13 +25,10 @@ public class ItemStats {
             generator = "itemStat_sequence"
     )
     private int Id;
-
+    @ManyToOne(cascade = {CascadeType.ALL})
+    private Item itemId;
     @ManyToOne
-    @JoinColumn(name = "item_id")
-    private Item item;
-
-    @ManyToOne
-    @JoinColumn(name = "stats_name")
-    private Stats stats;
+    @JoinColumn(name = "stats_id_name")
+    private Stats stats_id;
     private int value;
 }
